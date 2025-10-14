@@ -1,5 +1,7 @@
 # Strategic Revenue Analysis of Megaline's Mobile Plans
 
+🔗 See the *GitHub Pages* of the project [**here**](https://eduardocornelsen.github.io/megaline-revenue-analysis/)
+
 ## 🗺️ Table of Contents / Índice
 
 ### 🇬🇧 English Version
