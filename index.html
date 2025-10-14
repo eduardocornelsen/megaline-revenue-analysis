@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Megaline Plan Revenue Analysis</title>
+    <style>
+        /* --- General Styles & Fonts --- */
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+        :root {
+            --bg-color: #f8f9fa;
+            --container-bg: #ffffff;
+            --text-color: #343a40;
+            --heading-color: #212529;
+            --subtitle-color: #6c757d;
+            --primary-color: #007bff;
+            --primary-color-darker: #0056b3;
+            --secondary-color: #6c757d;
+            --secondary-color-darker: #5a6268;
+            --success-color: #28a745;
+            --warning-bg: #fff3cd;
+            --warning-border: #ffc107;
+            --warning-text: #856404;
+            --border-color-light: #e9ecef;
+            --border-color-medium: #dee2e6;
+            --border-color-dark: #ced4da;
+            --highlight-bg: #e9f5ff;
+            --code-bg: #e9ecef;
+            --hypothesis-bg: #f1f3f5;
+            --text-light: #ffffff;
+        }
+
+        body[data-theme="dark"] {
+            --bg-color: #212529;
+            --container-bg: #343a40;
+            --text-color: #f8f9fa;
+            --heading-color: #ffffff;
+            --subtitle-color: #adb5bd;
+            --primary-color: #4dabf7;
+            --primary-color-darker: #1790f5;
+            --secondary-color: #868e96;
+            --secondary-color-darker: #6c757d;
+            --success-color: #20c997;
+            --warning-bg: #594a1d;
+            --warning-border: #ffc107;
+            --warning-text: #ffeaa7;
+            --border-color-light: #495057;
+            --border-color-medium: #495057;
+            --border-color-dark: #6c757d;
+            --highlight-bg: #003d7a;
+            --code-bg: #495057;
+            --hypothesis-bg: #495057;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container { max-width: 900px; margin: 40px auto; background: var(--container-bg); padding: 30px 40px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-color-light); transition: background-color 0.3s ease, border-color 0.3s ease; }
+        header { text-align: center; border-bottom: 2px solid var(--border-color-medium); padding-bottom: 25px; margin-bottom: 30px; }
+        header h1 { font-size: 2.5em; font-weight: 700; color: var(--heading-color); margin-bottom: 10px; }
+        header p.subtitle { font-size: 1.2em; color: var(--subtitle-color); font-style: italic; max-width: 700px; margin: 0 auto 20px auto; }
+        .header-gif { max-width: 150px; border-radius: 8px; margin-bottom: 20px; }
+        .header-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+        .badges { margin-bottom: 15px; }
+        .badges img { margin: 0 5px; }
+        .translate-button, .theme-button { background-color: var(--secondary-color); color: var(--text-light); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.9em; transition: background-color 0.3s ease; display: flex; align-items: center; gap: 8px; }
+        .icon-container svg { width: 16px; height: 16px; fill: currentColor; }
+        .translate-button:hover, .theme-button:hover { background-color: var(--secondary-color-darker); }
+        .section { margin-bottom: 35px; }
+        h2 { font-size: 1.8em; font-weight: 700; color: var(--primary-color); border-bottom: 2px solid var(--border-color-light); padding-bottom: 10px; margin-bottom: 20px; }
+        ul.key-findings { list-style: none; padding-left: 0; }
+        ul.key-findings li { background-color: var(--highlight-bg); border-left: 4px solid var(--primary-color); padding: 15px; margin-bottom: 10px; border-radius: 5px; font-size: 1.05em; }
+        ul.key-findings li strong { color: var(--primary-color-darker); }
+        ol li { margin-bottom: 12px; }
+        .hypothesis { background-color: var(--hypothesis-bg); padding: 15px; border-radius: 8px; margin-top: 15px; border: 1px solid var(--border-color-dark); }
+        .hypothesis p { margin: 5px 0; }
+        code { font-family: 'Courier New', Courier, monospace; background-color: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.95em; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { background-color: var(--success-color); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.9em; font-weight: 500; }
+        .note { background-color: var(--warning-bg); border-left: 4px solid var(--warning-border); padding: 20px; border-radius: 5px; }
+        .note h3 { margin-top: 0; color: var(--warning-text); }
+        .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--text-light); padding: 12px 25px; text-align: center; text-decoration: none; font-size: 1.1em; font-weight: bold; border-radius: 8px; transition: background-color 0.3s ease, transform 0.2s ease; }
+        .cta-button:hover { background-color: var(--primary-color-darker); transform: translateY(-2px); }
+        .cta-buttons-container { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
+        @media (max-width: 768px) { .container { padding: 20px; margin: 20px; } header h1 { font-size: 2em; } h2 { font-size: 1.5em; } .cta-buttons-container { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1 id="main-title">Strategic Revenue Analysis of Megaline's Mobile Plans</h1>
+            <p class="subtitle" id="subtitle">A data-driven analysis to determine the most profitable mobile plan and guide marketing strategy.</p>
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2VtYTJsNXFoMWJ2bHh6OWRjaGl3ZTRqY2pzb3FiM2h3d2Zpcm02dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AFpGh0Lor1o03GXxFq/giphy.gif" alt="Project GIF" class="header-gif">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWt6NjE5amUzbmR5aTJqMXhsY25uMXFzeHpha242dnZ3ZGFlbjYxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iRIf7MAdvOIbdxK4rR/giphy.gif" alt="Project GIF" class="header-gif">
+            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXdkcHNyaG8xMnJwMTAzZWc5cGVlbWtlN2F1MGhzMHJxZnlwZmhmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6Ztah2Jo4BQReDIs/giphy.gif" alt="Project GIF" class="header-gif">
+            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHEwcWV6bXBhMHJ4b2poOTNsMjVyMXV6N3c2cG15YnBuem9vdWF5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdEFUauyibx7mYE/giphy.gif" alt="Project GIF" class="header-gif">
+            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5YTRqNGkzbXVxeXl0eDAzNmQ3ZWl4eXB1aWYyOGl4NGs1M2FkdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WmBl8pvjfyYUszw1TS/giphy.gif" alt="Project GIF" class="header-gif">
+            <div class="badges">
+                <img src="https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
+                <img src="https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas Badge">
+                <img src="https://img.shields.io/badge/Status-Complete-28a745?style=for-the-badge" alt="Status Badge">
+            </div>
+            <div class="header-buttons">
+                <button id="translateBtn" class="translate-button"><span class="icon-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.62-1.23 4.96-3.1 6.39z"/></svg></span><span id="translateBtnText">Translate to Portuguese</span></button>
+                <button id="themeToggleBtn" class="theme-button"><span id="themeIconContainer" class="icon-container"></span><span id="themeBtnText">Toggle Theme</span></button>
+            </div>
+        </header>
+
+        <div class="section">
+            <h2 id="objective-title">🎯 Project Objective</h2>
+            <p id="objective-p1"><strong>This project presents a comprehensive analysis of customer data for Megaline, a telecom provider, to determine which of its two prepaid plans—Surf or Ultimate—is more profitable.</strong></p>
+            <p id="objective-p2">The primary goal is to provide data-driven insights that can guide the company's future marketing budget allocation and maximize revenue streams.</p>
+        </div>
+
+        <div class="section">
+            <h2 id="findings-title">📊 Key Findings</h2>
+            <ul class="key-findings">
+                <li id="finding-1"><strong>Higher Average Revenue:</strong> The 'Ultimate' plan consistently generates a higher average revenue per user (ARPU).</li>
+                <li id="finding-2"><strong>Revenue Volatility:</strong> The 'Surf' plan's revenue is more unpredictable, driven by customers who frequently exceed their plan limits and incur overage charges.</li>
+                <li id="finding-3"><strong>No Regional Impact:</strong> Statistical tests showed no significant difference in revenue from users in the NY–NJ area compared to other regions.</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2 id="methodology-title">🔬 Methodology</h2>
+            <ol>
+                <li id="method-1"><strong>Data Wrangling & Preprocessing:</strong> Cleaned and transformed raw usage data using Python, Pandas, and NumPy.</li>
+                <li id="method-2"><strong>Feature Engineering:</strong> Created new variables, such as monthly revenue per user, by aggregating calls, messages, and data usage.</li>
+                <li id="method-3"><strong>Exploratory Data Analysis (EDA):</strong> Generated visualizations with Matplotlib and Seaborn to uncover trends and revenue distributions.</li>
+                <li id="method-4"><strong>Statistical Testing:</strong> Conducted formal hypothesis tests using the SciPy library to validate revenue differences between the plans.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2 id="tech-title">🛠️ Technologies Used</h2>
+            <div class="tech-tags">
+                <span class="tag">Python</span>
+                <span class="tag">Pandas</span>
+                <span class="tag">NumPy</span>
+                <span class="tag">Matplotlib</span>
+                <span class="tag">Seaborn</span>
+                <span class="tag">SciPy</span>
+                <span class="tag">Jupyter Notebook</span>
+            </div>
+        </div>
+        
+        <div class="section note">
+             <h3 id="reproducibility-title">📝 Note on Reproducibility</h3>
+             <p id="reproducibility-p">This project was completed using proprietary datasets from the TripleTen curriculum. Therefore, the notebook is not directly runnable outside that environment. However, the repository file contains all code, outputs, and visualizations for a complete review.</p>
+        </div>
+        
+        <div class="section cta-section" style="text-align: center;">
+            <h2 id="cta-title">🚀 View the Project</h2>
+            <p id="cta-p">Explore the complete analysis, including all code and visualizations, in the project repository.</p>
+
+            <div class="cta-buttons-container">
+                <a href="YOUR_GITHUB_LINK_HERE" class="cta-button" id="cta-btn-github">View on GitHub</a>
+                <a href="YOUR_GITHUB_LINK_HERE" class="cta-button" id="cta-btn-notebook">Open Notebook</a>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            'pt': {
+                'main-title': "Análise Estratégica de Receita dos Planos da Megaline",
+                'subtitle': "Uma análise de dados para determinar o plano de celular mais lucrativo e guiar a estratégia de marketing.",
+                'objective-title': "🎯 Objetivo do Projeto",
+                'objective-p1': "<strong>Este projeto apresenta uma análise completa dos dados de clientes da Megaline, uma operadora de telecomunicações, para determinar qual de seus dois planos pré-pagos — Surf ou Ultimate — é mais lucrativo.</strong>",
+                'objective-p2': "O objetivo principal é fornecer insights baseados em dados que possam orientar a alocação do orçamento de marketing da empresa e maximizar as fontes de receita.",
+                'findings-title': "📊 Principais Descobertas",
+                'finding-1': "<strong>Receita Média Superior:</strong> O plano 'Ultimate' gera consistentemente uma maior receita média por usuário (ARPU).",
+                'finding-2': "<strong>Volatilidade da Receita:</strong> A receita do plano 'Surf' é mais imprevisível, impulsionada por clientes que frequentemente excedem os limites do plano e incorrem em cobranças de excedentes.",
+                'finding-3': "<strong>Sem Impacto Regional:</strong> Os testes estatísticos não mostraram diferença significativa na receita de usuários da região de NY–NJ em comparação com outras regiões.",
+                'methodology-title': "🔬 Metodologia",
+                'method-1': "<strong>Tratamento e Pré-processamento de Dados:</strong> Limpeza e transformação dos dados brutos de uso utilizando Python, Pandas e NumPy.",
+                'method-2': "<strong>Engenharia de Features:</strong> Criação de novas variáveis, como a receita mensal por usuário, agregando dados de chamadas, mensagens e internet.",
+                'method-3': "<strong>Análise Exploratória de Dados (AED):</strong> Geração de visualizações com Matplotlib e Seaborn para descobrir tendências e distribuições de receita.",
+                'method-4': "<strong>Testes Estatísticos:</strong> Condução de testes de hipóteses formais com a biblioteca SciPy para validar as diferenças de receita entre os planos.",
+                'tech-title': "🛠️ Tecnologias Utilizadas",
+                'cta-title': "🚀 Ver o Projeto",
+                'cta-p': "Explore a análise completa, incluindo todo o código e visualizações, no repositório do projeto.",
+                'reproducibility-title': "📝 Nota sobre Reprodutibilidade",
+                'reproducibility-p': "Este projeto foi concluído usando conjuntos de dados proprietários do currículo TripleTen. Portanto, o notebook não é diretamente executável fora desse ambiente. No entanto, o arquivo do repositório contém todo o código, saídas e visualizações para uma revisão completa.",
+                'cta-btn-github': "Ver no GitHub",
+                'translateBtnText': "Switch to English",
+                'themeBtnText': "Alterar Tema"
+            }
+        };
+
+        const originalTexts = {};
+        let currentLanguage = 'en';
+        const themeIconContainer = document.getElementById('themeIconContainer');
+        const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.64 5.64c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0s.39-1.02 0-1.41L5.64 5.64zm12.72 12.72c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-1.06-1.06zM5.64 18.36l-1.06-1.06c-.39-.39-.39-1.02 0-1.41s1.02-.39 1.41 0l1.06 1.06c.39.39.39 1.02 0 1.41s-1.02.39-1.41 0zM19.42 6.01c.39-.39.39-1.02 0-1.41l-1.06-1.06c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l1.06 1.06c.39.39 1.02.39 1.41 0z"/></svg>`;
+        const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.31 0-6-2.69-6-6 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>`;
+
+        function updateTheme(theme) {
+            document.body.setAttribute('data-theme', theme);
+            themeIconContainer.innerHTML = theme === 'dark' ? moonIcon : sunIcon;
+            localStorage.setItem('theme', theme);
+        }
+
+        document.getElementById('themeToggleBtn').addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme') || 'light';
+            updateTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        });
+
+        function setLanguage(lang) {
+            currentLanguage = lang;
+            if (lang === 'en') {
+                for (const id in originalTexts) {
+                    const element = document.getElementById(id);
+                    if (element) element.innerHTML = originalTexts[id];
+                }
+            } else {
+                const translationSet = translations[lang];
+                for (const id in translationSet) {
+                    const element = document.getElementById(id);
+                    if (element) element.innerHTML = translationSet[id];
+                }
+            }
+        }
+
+        document.getElementById('translateBtn').addEventListener('click', () => {
+            setLanguage(currentLanguage === 'en' ? 'pt' : 'en');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const allIds = new Set(Object.keys(translations.pt));
+             allIds.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) originalTexts[id] = element.innerHTML;
+            });
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            updateTheme(savedTheme);
+        });
+    </script>
+
+</body>
+</html>
