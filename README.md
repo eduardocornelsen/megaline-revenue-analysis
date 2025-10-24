@@ -1,41 +1,65 @@
-# Strategic Revenue Analysis of Megaline's Mobile Plans
+<center>
 
-🔗 See the *GitHub Pages* of the project [**here**](https://eduardocornelsen.github.io/megaline-revenue-analysis/)
 
-## 🗺️ Table of Contents / Índice
+# **Strategic Revenue Analysis of Megaline's Mobile Plans**:<br> A Comparative Study<br>(🏄🏻‍♂️ Surf X 👑Ultimate)
 
-### 🇬🇧 English Version
-* [**Strategic Revenue Analysis of Megaline's Mobile Plans**](#strategic-revenue-analysis-of-megalines-mobile-plans)
-    * [Project Summary](#-project-summary)
-    * [Key Findings & Business Insights](#-key-findings--business-insights)
-    * [Technical Approach & Tools](#%EF%B8%8F-technical-approach--tools)
-    * [Project Files](#-project-files)
-      * [Note on Data Availability](#-note-on-data-availability)
-    * [View the Project](#-view-the-project)
-* [**➡️ Ir para a versão em Português-BR**](#análise-estratégica-de-receita-dos-planos-da-megaline-português---br)
+
+<a href="https://eduardocornelsen.github.io/megaline-revenue-analysis/">
+  <img src="assets/images/banner-megaline-analysis.png" 
+       alt="Veja a Página do Projeto" 
+       style="width: 100%; max-width: 800px; height: auto; border-radius: 20px; margin-top: 20px;" >
+</a>
+
+<br>
+
+<details open>
+ <summary>
+  Tradução PT-BR
+ </summary>
+<div style="font-size: 1.2em;"><b><b>Análise de Receita dos Planos Telefônicos da Megaline:</b></b><br>Um Estudo Comparativo<br>(🏄🏻‍♂️ Surf X 👑Ultimate)</div>
+</details>
+
+# 
+
+<br>
+
+<a href="https://eduardocornelsen.github.io/megaline-revenue-analysis/" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+Project Page<br><div style="font-size: 0.8em;">Página do Projeto</div>
+</a>
+
+
+<br>
+
+🔗 See the dynamic *GitHub Pages* of the project [**here**](https://eduardocornelsen.github.io/megaline-revenue-analysis/)
+
+</center>
+
 
 ---
 
-### 🇧🇷 Versão em Português-BR
-* [**Análise Estratégica de Receita dos Planos da Megaline (Português - BR)**](#análise-estratégica-de-receita-dos-planos-da-megaline-português---br)
-    * [Resumo do Projeto](#-resumo-do-projeto)
-    * [Principais Descobertas e Insights de Negócio](#-principais-descobertas-e-insights-de-negócio)
-    * [Abordagem Técnica e Ferramentas](#%EF%B8%8F-technical-approach--tools)
-    * [Arquivos do Projeto](#-arquivos-do-projeto)
-        * [Nota sobre a Disponibilidade dos Dados](#-nota-sobre-a-disponibilidade-dos-dados)
-    * [Veja o Projeto](#-veja-o-projeto)
-* [**➡️ Go to English version**](#strategic-revenue-analysis-of-megalines-mobile-plans)
+<details open>
+ <summary>
+ <b style="font-size: 1.4em;">1. 🇺🇸 English Version</b>
+ </summary>
 
----
----
+
+> [➡️ Ir para a versão em **Português-BR**](#análise-estratégica-de-receita-dos-planos-da-megaline)
+
+
+<center>
+
+# **Strategic Revenue Analysis of Megaline's Mobile Plans**:<br> A Comparative Study<br>(🏄🏻‍♂️ Surf X 👑Ultimate)
+
+</center>
+
+
 
 ## 📋 Project Summary
 
 This project presents a comprehensive analysis of customer data for **Megaline**, a telecom provider, to determine which of its two prepaid plans—**Surf** or **Ultimate**—is more profitable. The primary goal is to provide data-driven insights that can guide the company's future marketing budget allocation.
 
 The analysis is based on a 2018 dataset covering the usage patterns of 500 clients, focusing on their call, text, and data consumption. The process involved data cleaning, feature engineering, exploratory data analysis, and statistical hypothesis testing to compare the revenue streams from both plans.
-
----
+<br>
 
 ## 💡 Key Findings & Business Insights
 
@@ -44,7 +68,6 @@ The analysis is based on a 2018 dataset covering the usage patterns of 500 clien
 * **No Regional Impact:** Statistical tests showed no significant difference in revenue generated from users in the NY–NJ metropolitan area compared to those in other regions.
 * **Actionable Recommendation:** To maximize revenue and ensure predictability, marketing efforts should focus on promoting the **'Ultimate'** plan to attract and retain high-value customers.
 
----
 
 ## 🛠️ Technical Approach & Tools
 
@@ -56,31 +79,67 @@ My analytical process followed these key steps:
 
 The entire analysis is documented in a **Jupyter Notebook**.
 
----
 
 ## 📂 Project Files
 
-* `megaline_plan_analysis_portfolio_FINAL_clean.ipynb`: The complete Jupyter Notebook containing all steps, from data loading and cleaning to analysis, visualization, and statistical conclusions.
+* `megaline_revenue_eda.ipynb`: The complete Jupyter Notebook containing all steps, from data loading and cleaning to analysis, visualization, and statistical conclusions.
 * `README.md`: This summary file.
+
 
 ### 📝 Note on Data Availability
 
 The dataset for this analysis was provided by the TripleTen platform and is proprietary. Therefore, the code in the notebook cannot be run locally without access to the original data files. However, all outputs, tables, and visualizations have been preserved within the notebook for a complete review of the methodology and results.
 
----
-## 🚀 View the Project
-
-**[View the Code on GitHub](YOUR_GITHUB_LINK_HERE)**
-
-**[Open in Google Collab](SEU_LINK_DO_GITHUB_AQUI)**
-
+<br>
 
 ---
+
+<center>
+
+## 🚀 **Explore the Notebook**
+
+<a href="https://colab.research.google.com/drive/1Sy64mFffPI-nRyfE1DZvz-5qeMy58dj2?usp=sharing" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+Open in Collab
+</a>
+
+
+<br>
+
+
+
+<a href="https://eduardocornelsen.github.io/megaline-revenue-analysis/" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+See on GitHub
+</a>
+
+
+</center>
+
+<br><br>
+
+</details>
+
+<br>
+
 ---
 
-# Análise Estratégica de Receita dos Planos da Megaline (Português - BR)
+<br>
 
-[Go to English version](#strategic-revenue-analysis-of-megalines-mobile-plans)
+<details open>
+ <summary>
+ <b style="font-size: 1.4em;">2. 🇧🇷 Versão em Português - BR</b>
+ </summary>
+ 
+<br>
+
+> 🇬🇧 [Go to English version](#strategic-revenue-analysis-of-megalines-mobile-plans-english-version)
+
+<center>
+
+# **Análise Estratégica de Receita dos Planos da Megaline**:<br> Um Estudo Comparativo<br>(🏄🏻‍♂️ Surf X 👑Ultimate)
+
+</center>
+
+
 
 ## 📋 Resumo do Projeto
 
@@ -88,7 +147,6 @@ Este projeto apresenta uma análise completa dos dados de clientes da **Megaline
 
 A análise foi baseada em um conjunto de dados de 2018 que cobre os padrões de uso de 500 clientes, com foco no consumo de chamadas, mensagens e internet. O processo incluiu limpeza de dados, engenharia de features, análise exploratória e testes de hipóteses estatísticas para comparar as fontes de receita de ambos os planos.
 
----
 
 ## 💡 Principais Descobertas e Insights de Negócio
 
@@ -97,7 +155,6 @@ A análise foi baseada em um conjunto de dados de 2018 que cobre os padrões de 
 * **Sem Impacto Regional:** Os testes estatísticos não mostraram diferença significativa na receita gerada por usuários da área metropolitana de NY–NJ em comparação com os de outras regiões.
 * **Recomendação Prática:** Para maximizar a receita e garantir previsibilidade, os esforços de marketing devem se concentrar na promoção do plano **'Ultimate'** para atrair e reter clientes de alto valor.
 
----
 
 ## 🛠️ Abordagem Técnica e Ferramentas
 
@@ -109,14 +166,13 @@ Meu processo analítico seguiu estas etapas principais:
 
 Toda a análise está documentada em um **Jupyter Notebook**.
 
----
+
 
 ## 📂 Arquivos do Projeto
 
 * `megaline_plan_analysis_portfolio_FINAL_clean.ipynb`: O Jupyter Notebook completo, contendo todas as etapas, desde o carregamento e limpeza dos dados até a análise, visualização e conclusões estatísticas.
 * `README.md`: Este arquivo de resumo.
 
----
 
 <div class='info'>
 
@@ -124,11 +180,30 @@ Toda a análise está documentada em um **Jupyter Notebook**.
 
 O conjunto de dados para esta análise foi fornecido pela plataforma TripleTen e é proprietário. Portanto, o código no notebook não pode ser executado localmente sem acesso aos arquivos de dados originais. No entanto, todos os resultados, tabelas e visualizações foram preservados no notebook para uma revisão completa da metodologia e dos resultados.
 
+<br>
+
 ---
 
-## 🚀 Veja o Projeto
+<center>
 
-**[Abra o Notebook no Collab](SEU_LINK_DO_GITHUB_AQUI)**
+## 🚀 **Explore o Notebook**
 
-**[Veja o Código no GitHub](SEU_LINK_DO_GITHUB_AQUI)**
+
+<a href="https://colab.research.google.com/drive/1Sy64mFffPI-nRyfE1DZvz-5qeMy58dj2?usp=sharing" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+Abrir no Collab
+</a>
+
+
+<br>
+
+
+
+<a href="https://eduardocornelsen.github.io/megaline-revenue-analysis/" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
+Ver no GitHub
+</a>
+
+</center>
+
+
+</details>
 
