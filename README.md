@@ -1,8 +1,6 @@
-<center>
-
+<div align="center">
 
 # **Strategic Revenue Analysis of Megaline's Mobile Plans**:<br> A Comparative Study<br>(🏄🏻‍♂️ Surf X 👑Ultimate)
-
 
 <a href="https://eduardocornelsen.github.io/megaline-revenue-analysis/">
   <img src="assets/images/banner-megaline-analysis.png" 
@@ -33,7 +31,7 @@ Project Page<br><div style="font-size: 0.8em;">Página do Projeto</div>
 🔗 See the dynamic *GitHub Pages* of the project [**here**](https://eduardocornelsen.github.io/megaline-revenue-analysis/)
 
 </center>
-
+</div>
 
 ---
 
@@ -46,11 +44,11 @@ Project Page<br><div style="font-size: 0.8em;">Página do Projeto</div>
 > [➡️ Ir para a versão em **Português-BR**](#análise-estratégica-de-receita-dos-planos-da-megaline)
 
 
-<center>
+<div align='center'>
 
 # **Strategic Revenue Analysis of Megaline's Mobile Plans**:<br> A Comparative Study<br>(🏄🏻‍♂️ Surf X 👑Ultimate)
 
-</center>
+</div>
 
 
 
@@ -94,25 +92,23 @@ The dataset for this analysis was provided by the TripleTen platform and is prop
 
 ---
 
-<center>
+<div align='center'>
 
 ## 🚀 **Explore the Notebook**
 
 <a href="https://colab.research.google.com/drive/1Sy64mFffPI-nRyfE1DZvz-5qeMy58dj2?usp=sharing" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
-Open in Collab
+[Open in Collab](https://colab.research.google.com/drive/1Sy64mFffPI-nRyfE1DZvz-5qeMy58dj2?usp=sharing)
 </a>
 
+</div>
 
 <br>
 
 
 
 <a href="https://eduardocornelsen.github.io/megaline-revenue-analysis/" style="display: inline-block; padding: 12px 25px; font-size: 1.1em; font-weight: bold; text-align: center; text-decoration: none; color: #ffffff; background-color: #a74c31; border-radius: 8px; border: none; cursor: pointer; transition: background-color 0.3s ease;">
-See on GitHub
+[[See on GitHub](https://github.com/eduardocornelsen/megaline-revenue-analysis/blob/main/notebooks/megaline-revenue-eda.ipynb)
 </a>
-
-
-</center>
 
 <br><br>
 
@@ -184,7 +180,7 @@ O conjunto de dados para esta análise foi fornecido pela plataforma TripleTen e
 
 ---
 
-<center>
+<div align='center'>
 
 ## 🚀 **Explore o Notebook**
 
@@ -202,8 +198,7 @@ Abrir no Collab
 Ver no GitHub
 </a>
 
-</center>
-
+</div>
 
 </details>
 
