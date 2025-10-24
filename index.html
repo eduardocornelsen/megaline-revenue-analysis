@@ -14,8 +14,8 @@
             --text-color: #343a40;
             --heading-color: #212529;
             --subtitle-color: #6c757d;
-            --primary-color: #007bff;
-            --primary-color-darker: #0056b3;
+            --primary-color: #20c997;
+            --primary-color-darker: #1a9e7a;
             --secondary-color: #6c757d;
             --secondary-color-darker: #5a6268;
             --success-color: #28a745;
@@ -25,32 +25,32 @@
             --border-color-light: #e9ecef;
             --border-color-medium: #dee2e6;
             --border-color-dark: #ced4da;
-            --highlight-bg: #e9f5ff;
+            --highlight-bg: #e9f9f5;
             --code-bg: #e9ecef;
             --hypothesis-bg: #f1f3f5;
             --text-light: #ffffff;
         }
 
-        body[data-theme="dark"] {
-            --bg-color: #212529;
-            --container-bg: #343a40;
-            --text-color: #f8f9fa;
+        body[data-theme='dark'] {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
             --heading-color: #ffffff;
-            --subtitle-color: #adb5bd;
-            --primary-color: #4dabf7;
-            --primary-color-darker: #1790f5;
-            --secondary-color: #868e96;
-            --secondary-color-darker: #6c757d;
-            --success-color: #20c997;
-            --warning-bg: #594a1d;
+            --subtitle-color: #a0a0a0;
+            --primary-color: #20c997;
+            --primary-color-darker: #1a9e7a;
+            --secondary-color: #888;
+            --secondary-color-darker: #aaa;
+            --warning-bg: #332701;
             --warning-border: #ffc107;
-            --warning-text: #ffeaa7;
-            --border-color-light: #495057;
-            --border-color-medium: #495057;
-            --border-color-dark: #6c757d;
-            --highlight-bg: #003d7a;
-            --code-bg: #495057;
-            --hypothesis-bg: #495057;
+            --warning-text: #ffebb5;
+            --border-color-light: #2a2a2a;
+            --border-color-medium: #3a3a3a;
+            --border-color-dark: #4a4a4a;
+            --highlight-bg: #2a3b36;
+            --code-bg: #2a2a2a;
+            --hypothesis-bg: #252525;
+            --text-light: #ffffff;
         }
 
         body {
@@ -67,7 +67,30 @@
         header { text-align: center; border-bottom: 2px solid var(--border-color-medium); padding-bottom: 25px; margin-bottom: 30px; }
         header h1 { font-size: 2.5em; font-weight: 700; color: var(--heading-color); margin-bottom: 10px; }
         header p.subtitle { font-size: 1.2em; color: var(--subtitle-color); font-style: italic; max-width: 700px; margin: 0 auto 20px auto; }
-        .header-gif { max-width: 150px; border-radius: 8px; margin-bottom: 20px; }
+        
+        /* Class for banner image */
+        
+        .image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        
+        /* Class for GIFs */
+        
+        .header-gif {
+            width: 100px; /* Sizing the GIFs */
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%; /* Making them circles */
+            margin: 10px 5px;
+            border: 2px solid #3498db;
+        }
+
+        /*.header-gif { max-width: 150px; border-radius: 8px; margin-bottom: 20px; }*/
+
         .header-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
         .badges { margin-bottom: 15px; }
         .badges img { margin: 0 5px; }
@@ -84,13 +107,20 @@
         .hypothesis p { margin: 5px 0; }
         code { font-family: 'Courier New', Courier, monospace; background-color: var(--code-bg); padding: 2px 6px; border-radius: 4px; font-size: 0.95em; }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; }
-        .tag { background-color: var(--success-color); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.9em; font-weight: 500; }
+        .tag { background-color: var(--primary-color); color: white; padding: 6px 12px; border-radius: 20px; font-size: 0.9em; font-weight: 500; }
         .note { background-color: var(--warning-bg); border-left: 4px solid var(--warning-border); padding: 20px; border-radius: 5px; }
         .note h3 { margin-top: 0; color: var(--warning-text); }
         .cta-button { display: inline-block; background-color: var(--primary-color); color: var(--text-light); padding: 12px 25px; text-align: center; text-decoration: none; font-size: 1.1em; font-weight: bold; border-radius: 8px; transition: background-color 0.3s ease, transform 0.2s ease; }
         .cta-button:hover { background-color: var(--primary-color-darker); transform: translateY(-2px); }
         .cta-buttons-container { display: flex; justify-content: center; gap: 15px; margin-top: 15px; }
         @media (max-width: 768px) { .container { padding: 20px; margin: 20px; } header h1 { font-size: 2em; } h2 { font-size: 1.5em; } .cta-buttons-container { flex-direction: column; } }
+        .cta-button-alt {
+            background-color: --primary-color:; /* Vibrant violet */
+            color: var(--text-light);      /* White text */
+        }
+        .cta-button-alt:hover {
+        background-color: #7122b9; /* Darker violet for hover */
+        }
     </style>
 </head>
 <body>
@@ -99,11 +129,14 @@
         <header>
             <h1 id="main-title">Strategic Revenue Analysis of Megaline's Mobile Plans</h1>
             <p class="subtitle" id="subtitle">A data-driven analysis to determine the most profitable mobile plan and guide marketing strategy.</p>
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2VtYTJsNXFoMWJ2bHh6OWRjaGl3ZTRqY2pzb3FiM2h3d2Zpcm02dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AFpGh0Lor1o03GXxFq/giphy.gif" alt="Project GIF" class="header-gif">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWt6NjE5amUzbmR5aTJqMXhsY25uMXFzeHpha242dnZ3ZGFlbjYxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iRIf7MAdvOIbdxK4rR/giphy.gif" alt="Project GIF" class="header-gif">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXdkcHNyaG8xMnJwMTAzZWc5cGVlbWtlN2F1MGhzMHJxZnlwZmhmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6Ztah2Jo4BQReDIs/giphy.gif" alt="Project GIF" class="header-gif">
-            <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZHEwcWV6bXBhMHJ4b2poOTNsMjVyMXV6N3c2cG15YnBuem9vdWF5aSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3ohzdEFUauyibx7mYE/giphy.gif" alt="Project GIF" class="header-gif">
-            <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5YTRqNGkzbXVxeXl0eDAzNmQ3ZWl4eXB1aWYyOGl4NGs1M2FkdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WmBl8pvjfyYUszw1TS/giphy.gif" alt="Project GIF" class="header-gif">
+            <img src="assets/images/banner-megaline-analysis.png" alt="Project Banner" class="image" >
+            
+            <div>
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2VtYTJsNXFoMWJ2bHh6OWRjaGl3ZTRqY2pzb3FiM2h3d2Zpcm02dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AFpGh0Lor1o03GXxFq/giphy.gif" alt="Project GIF" class="header-gif">
+                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWt6NjE5amUzbmR5aTJqMXhsY25uMXFzeHpha242dnZ3ZGFlbjYxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iRIf7MAdvOIbdxK4rR/giphy.gif" alt="Project GIF" class="header-gif">
+                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXdkcHNyaG8xMnJwMTAzZWc5cGVlbWtlN2F1MGhzMHJxZnlwZmhmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6Ztah2Jo4BQReDIs/giphy.gif" alt="Project GIF" class="header-gif">
+                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5YTRqNGkzbXVxeXl0eDAzNmQ3ZWl4eXB1aWYyOGl4NGs1M2FkdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WmBl8pvjfyYUszw1TS/giphy.gif" alt="Project GIF" class="header-gif">
+            </div>
             <div class="badges">
                 <img src="https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
                 <img src="https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas Badge">
@@ -159,13 +192,12 @@
         </div>
         
         <div class="section cta-section" style="text-align: center;">
-            <h2 id="cta-title">🚀 View the Project</h2>
+            <h2 id="cta-title">🚀 Explore the Notebook</h2>
             <p id="cta-p">Explore the complete analysis, including all code and visualizations, in the project repository.</p>
 
             <div class="cta-buttons-container">
-                <a href="YOUR_GITHUB_LINK_HERE" class="cta-button" id="cta-btn-github">View on GitHub</a>
-                <a href="YOUR_GITHUB_LINK_HERE" class="cta-button" id="cta-btn-notebook">Open Notebook</a>
-
+                <a href="https://colab.research.google.com/drive/1Sy64mFffPI-nRyfE1DZvz-5qeMy58dj2?usp=sharing" class="cta-button cta-button-alt" id="cta-button-notebook">Open in Collab</a>
+                <a href="https://github.com/eduardocornelsen/megaline-revenue-analysis/blob/main/notebooks/megaline-revenue-eda.ipynb" class="cta-button cta-button-alt" id="cta-btn-github">View on GitHub</a>
             </div>
         </div>
     </div>
@@ -188,11 +220,12 @@
                 'method-3': "<strong>Análise Exploratória de Dados (AED):</strong> Geração de visualizações com Matplotlib e Seaborn para descobrir tendências e distribuições de receita.",
                 'method-4': "<strong>Testes Estatísticos:</strong> Condução de testes de hipóteses formais com a biblioteca SciPy para validar as diferenças de receita entre os planos.",
                 'tech-title': "🛠️ Tecnologias Utilizadas",
-                'cta-title': "🚀 Ver o Projeto",
+                'cta-title': "🚀 Explore o Notebook",
                 'cta-p': "Explore a análise completa, incluindo todo o código e visualizações, no repositório do projeto.",
                 'reproducibility-title': "📝 Nota sobre Reprodutibilidade",
                 'reproducibility-p': "Este projeto foi concluído usando conjuntos de dados proprietários do currículo TripleTen. Portanto, o notebook não é diretamente executável fora desse ambiente. No entanto, o arquivo do repositório contém todo o código, saídas e visualizações para uma revisão completa.",
                 'cta-btn-github': "Ver no GitHub",
+                'cta-button-notebook': "Abrir no Collab",
                 'translateBtnText': "Switch to English",
                 'themeBtnText': "Alterar Tema"
             }
