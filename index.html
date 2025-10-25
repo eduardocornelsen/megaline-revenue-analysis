@@ -65,34 +65,32 @@
 
         .container { max-width: 900px; margin: 40px auto; background: var(--container-bg); padding: 30px 40px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); border: 1px solid var(--border-color-light); transition: background-color 0.3s ease, border-color 0.3s ease; }
         header { text-align: center; border-bottom: 2px solid var(--border-color-medium); padding-bottom: 25px; margin-bottom: 30px; }
-        header h1 { font-size: 2.5em; font-weight: 700; color: var(--heading-color); margin-bottom: 10px; }
+        header h1 { font-size: 2.5em; font-weight: 700; color: var(--heading-color); margin-bottom: 0px; }
         header p.subtitle { font-size: 1.2em; color: var(--subtitle-color); font-style: italic; max-width: 700px; margin: 0 auto 20px auto; }
         
         /* Class for banner image */
         
         .image {
             width: 100%;
-            max-width: 800px;
+            max-width: 550px;
             height: auto;
             border-radius: 8px;
-            margin-top: 20px;
+            margin-top: 0px;
         }
         
-        /* Class for GIFs */
-        
-        .header-gif {
-            width: 100px; /* Sizing the GIFs */
-            height: 100px;
-            object-fit: cover;
-            border-radius: 50%; /* Making them circles */
-            margin: 10px 5px;
-            border: 2px solid #3498db;
-        }
-
         /*.header-gif { max-width: 150px; border-radius: 8px; margin-bottom: 20px; }*/
-
-        .header-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
-        .badges { margin-bottom: 15px; }
+        .header-divider {
+            /* Removes the default browser border */
+            border: none; 
+            /* Sets the color and thickness of the line */
+            border-top: 1px solid #4d4b4b; /* Use a color that fits your theme, e.g., a light gray */
+            
+            /* ADD SPACE AROUND THE LINE (e.g., 10 pixels top and bottom) */
+            margin-top: 10px; 
+            margin-bottom: 10px;
+        }
+        .header-buttons { display: flex; justify-content: center; gap: 10px; margin-top: 20px; margin-bottom: px }
+        .badges {margin-top: 20px}
         .badges img { margin: 0 5px; }
         .translate-button, .theme-button { background-color: var(--secondary-color); color: var(--text-light); border: none; padding: 8px 15px; border-radius: 20px; cursor: pointer; font-size: 0.9em; transition: background-color 0.3s ease; display: flex; align-items: center; gap: 8px; }
         .icon-container svg { width: 16px; height: 16px; fill: currentColor; }
@@ -121,31 +119,137 @@
         .cta-button-alt:hover {
         background-color: #7122b9; /* Darker violet for hover */
         }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border: 1px solid var(--border-color-medium);
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .gallery-item p {
+            font-weight: bold;
+            margin-top: 0;
+            color: var(--heading-color);
+        }
+
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 1; 
+            padding-top: 100px; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.9); 
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .summary-text {
+            text-align: left;
+            margin-top: 15px;
+        }
+        .summary {
+            list-style: disc;
+            padding-left: 20px;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: var(--text-color);
+            font-size: 0.9em;
+            text-align: left;
+        }
+        .summary li:first-child {
+            font-weight: bold;
+            color: var(--heading-color);
+            font-size: 1.05em;
+        }
+        .modal-caption {
+            text-align: center;
+            color: #ccc;
+            padding: 10px 20px;
+            width: 80%;
+            max-width: 700px;
+            margin: auto;
+        }
+        #modalSummaryList {
+            list-style: disc;
+            padding-left: 40px; /* More padding for centering */
+            text-align: left;
+            display: inline-block; /* To center the block */
+        }
+        #modalSummaryList li {
+            margin-bottom: 10px;
+        }
+        #modalSummaryList li:first-child {
+            font-weight: bold;
+            font-size: 1.1em;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
         <header>
-            <h1 id="main-title">Strategic Revenue Analysis of Megaline's Mobile Plans</h1>
-            <p class="subtitle" id="subtitle">A data-driven analysis to determine the most profitable mobile plan and guide marketing strategy.</p>
             <img src="assets/images/banner-megaline-analysis.png" alt="Project Banner" class="image" >
             
-            <div>
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExN2VtYTJsNXFoMWJ2bHh6OWRjaGl3ZTRqY2pzb3FiM2h3d2Zpcm02dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/AFpGh0Lor1o03GXxFq/giphy.gif" alt="Project GIF" class="header-gif">
-                <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdWt6NjE5amUzbmR5aTJqMXhsY25uMXFzeHpha242dnZ3ZGFlbjYxNyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iRIf7MAdvOIbdxK4rR/giphy.gif" alt="Project GIF" class="header-gif">
-                <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXdkcHNyaG8xMnJwMTAzZWc5cGVlbWtlN2F1MGhzMHJxZnlwZmhmYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6Ztah2Jo4BQReDIs/giphy.gif" alt="Project GIF" class="header-gif">
-                <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdmt5YTRqNGkzbXVxeXl0eDAzNmQ3ZWl4eXB1aWYyOGl4NGs1M2FkdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WmBl8pvjfyYUszw1TS/giphy.gif" alt="Project GIF" class="header-gif">
-            </div>
             <div class="badges">
-                <img src="https://img.shields.io/badge/Language-Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
-                <img src="https://img.shields.io/badge/Library-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas Badge">
-                <img src="https://img.shields.io/badge/Status-Complete-28a745?style=for-the-badge" alt="Status Badge">
+                <img src="https://img.shields.io/badge/Language-Python-2485ba?style=for-the-badge&logo=python&logoColor=white" alt="Python Badge">
+                <img src="https://img.shields.io/badge/Library-Pandas-143462?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas Badge">
+                <img src="https://img.shields.io/badge/Status-In%20Progress-f08459?style=for-the-badge&logo=wakatime" alt="Status Badge: In Progress">
             </div>
+
+
+            <h1 id="main-title">Strategic Revenue Analysis of<br>Megaline's Mobile Plans</h1>
+            <p class="subtitle" id="subtitle">A data-driven analysis to determine the<br><b>most profitable</b> mobile plan<br>and guide <b>marketing strategy.</b></p>
+
             <div class="header-buttons">
-                <button id="translateBtn" class="translate-button"><span class="icon-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.62-1.23 4.96-3.1 6.39z"/></svg></span><span id="translateBtnText">Translate to Portuguese</span></button>
-                <button id="themeToggleBtn" class="theme-button"><span id="themeIconContainer" class="icon-container"></span><span id="themeBtnText">Toggle Theme</span></button>
-            </div>
+
+                <button id="translateBtn" class="translate-button"><span class="icon-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1h-2v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.62-1.23 4.96-3.1 6.39z"/></svg></span>
+                    <span id="translateBtnText">Translate to Portuguese</span></button>
+
+                <button id="themeToggleBtn" class="theme-button"><span id="themeIconContainer" class="icon-container"></span>
+                    <span id="themeBtnText">Toggle Theme</span></button>
+            </div>            
+
         </header>
 
         <div class="section">
@@ -155,13 +259,129 @@
         </div>
 
         <div class="section">
-            <h2 id="findings-title">📊 Key Findings</h2>
+            <h2 id="findings-title">🔑 Key Findings</h2>
             <ul class="key-findings">
                 <li id="finding-1"><strong>Higher Average Revenue:</strong> The 'Ultimate' plan consistently generates a higher average revenue per user (ARPU).</li>
                 <li id="finding-2"><strong>Revenue Volatility:</strong> The 'Surf' plan's revenue is more unpredictable, driven by customers who frequently exceed their plan limits and incur overage charges.</li>
                 <li id="finding-3"><strong>No Regional Impact:</strong> Statistical tests showed no significant difference in revenue from users in the NY–NJ area compared to other regions.</li>
+                
             </ul>
         </div>
+        
+        <div class="section">
+            <h2 id="eda-title"> 📊 EDA - Exploratory Data Analysis Summary</h2>
+            <ul class="key-findings">
+                <li id="eda-1"><strong>The Ultimate plan is more profitable:</strong> <br><br>Our analysis of 500 Megaline customers shows that while the 'Surf' plan has the potential for high revenue from overage charges, the 'Ultimate' plan consistently generates higher and more predictable revenue per user.<br><br> We recommend focusing the marketing budget on attracting and retaining 'Ultimate' plan customers.</li>
+                
+            </ul>
+        </div>
+
+
+
+            <div class="gallery">
+                <div class="gallery-item">
+                    <p id="gallery-title-1">Monthly Revenue by Plan</p>
+                    <img src="assets/images/monthly_revenue_by_plan.png" alt="Monthly Revenue by Plan">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-1">
+                            <li>The 'Ultimate' plan shows higher and more consistent monthly revenue.</li>
+                            <li>While 'Surf' has occasional spikes from overage charges, 'Ultimate' provides a more stable revenue stream.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-2">Total Revenue by Plan</p>
+                    <img src="assets/images/plan_total_revenue.png" alt="Total Revenue by Plan">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-2">
+                            <li>'Ultimate' plan contributes more to the total revenue.</li>
+                            <li>This chart highlights the overall profitability of the 'Ultimate' plan compared to 'Surf'.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-3">Average Call Duration per Month</p>
+                    <img src="assets/images/avg_call_dur_month_line.png" alt="Average Call Duration per Month">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-3">
+                            <li>Call duration is similar for both plans.</li>
+                            <li>Users on both plans tend to have similar calling habits throughout the month.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-4">Average GB Usage per Month</p>
+                    <img src="assets/images/avg_gb_usage_month.png" alt="Average GB Usage per Month">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-4">
+                            <li>'Surf' plan users frequently exceed their data allowance.</li>
+                            <li>This indicates a potential for upselling 'Surf' users to the 'Ultimate' plan.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-5">Average Calls per Month</p>
+                    <img src="assets/images/avg-call-month.png" alt="Average Calls per Month">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-5">
+                            <li>The number of calls per month is comparable between plans.</li>
+                            <li>There is no significant difference in the number of calls made by users of either plan.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-10">User Mean Revenue Distribution</p>
+                    <img src="assets/images/user_mean_revenue_distribution_hist_box.png" alt="User Mean Revenue Distribution">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-10">
+                            <li>The average revenue per user is higher for the 'Ultimate' plan.</li>
+                            <li>This confirms that 'Ultimate' users are, on average, more profitable.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-6">Calls Distribution</p>
+                    <img src="assets/images/calls-box-alt.png" alt="Calls Distribution">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-6">
+                            <li>The distribution of call durations is similar for both plans.</li>
+                            <li>Most calls are short, with a few outliers of longer duration.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-7">Messages Distribution</p>
+                    <img src="assets/images/message_box_alt.png" alt="Messages Distribution">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-7">
+                            <li>'Ultimate' plan users send more messages.</li>
+                            <li>This is likely due to the larger message allowance in the 'Ultimate' plan.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-8">Monthly Average Revenue Distribution</p>
+                    <img src="assets/images/monthly_avg_rev_box.png" alt="Monthly Average Revenue Distribution">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-8">
+                            <li>'Ultimate' plan has a higher and more concentrated revenue distribution.</li>
+                            <li>The revenue from 'Surf' plan is more spread out due to overage charges.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <p id="gallery-title-9">Monthly GB Usage Distribution</p>
+                    <img src="assets/images/monthly_gb_usage__box.png" alt="Monthly GB Usage Distribution">
+                    <div class="summary-text">
+                        <ul class="summary" id="gallery-summary-9">
+                            <li>'Surf' plan users show a wider distribution of data usage.</li>
+                            <li>Many 'Surf' users consume data close to or beyond their plan limit.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         
         <div class="section">
             <h2 id="methodology-title">🔬 Methodology</h2>
@@ -202,11 +422,19 @@
         </div>
     </div>
 
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="modalCaption" class="modal-caption">
+            <ul id="modalSummaryList"></ul>
+        </div>
+    </div>
+
     <script>
         const translations = {
             'pt': {
-                'main-title': "Análise Estratégica de Receita dos Planos da Megaline",
-                'subtitle': "Uma análise de dados para determinar o plano de celular mais lucrativo e guiar a estratégia de marketing.",
+                'main-title': "Análise Estratégica da Receita dos<br>Planos de Telefonia da Megaline",
+                'subtitle': "Uma análise de dados para determinar<br>o plano de celular <b>mais lucrativo</b><br>e guiar a <b>estratégia de marketing.</b>",
                 'objective-title': "🎯 Objetivo do Projeto",
                 'objective-p1': "<strong>Este projeto apresenta uma análise completa dos dados de clientes da Megaline, uma operadora de telecomunicações, para determinar qual de seus dois planos pré-pagos — Surf ou Ultimate — é mais lucrativo.</strong>",
                 'objective-p2': "O objetivo principal é fornecer insights baseados em dados que possam orientar a alocação do orçamento de marketing da empresa e maximizar as fontes de receita.",
@@ -214,6 +442,27 @@
                 'finding-1': "<strong>Receita Média Superior:</strong> O plano 'Ultimate' gera consistentemente uma maior receita média por usuário (ARPU).",
                 'finding-2': "<strong>Volatilidade da Receita:</strong> A receita do plano 'Surf' é mais imprevisível, impulsionada por clientes que frequentemente excedem os limites do plano e incorrem em cobranças de excedentes.",
                 'finding-3': "<strong>Sem Impacto Regional:</strong> Os testes estatísticos não mostraram diferença significativa na receita de usuários da região de NY–NJ em comparação com outras regiões.",
+                'eda-title': "📊 EDA - Resumo da Análise Exploratória de Dados",
+                'gallery-title-1': "Receita Mensal por Plano",
+                'gallery-summary-1': "<li>O plano 'Ultimate' apresenta uma receita mensal maior e mais consistente.</li><li>Enquanto o 'Surf' tem picos ocasionais de cobranças excedentes, o 'Ultimate' oferece um fluxo de receita mais estável.</li>",
+                'gallery-title-2': "Receita Total por Plano",
+                'gallery-summary-2': "<li>O plano 'Ultimate' contribui mais para a receita total.</li><li>Este gráfico destaca a lucratividade geral do plano 'Ultimate' em comparação com o 'Surf'.</li>",
+                'gallery-title-3': "Duração Média das Chamadas por Mês",
+                'gallery-summary-3': "<li>A duração das chamadas é semelhante para ambos os planos.</li><li>Os usuários de ambos os planos tendem a ter hábitos de chamada semelhantes ao longo do mês.</li>",
+                'gallery-title-4': "Média de Uso de GB por Mês",
+                'gallery-summary-4': "<li>Os usuários do plano 'Surf' frequentemente excedem sua franquia de dados.</li><li>Isso indica um potencial para vender o plano 'Ultimate' para os usuários do 'Surf'.</li>",
+                'gallery-title-5': "Média de Chamadas por Mês",
+                'gallery-summary-5': "<li>O número de chamadas por mês é comparável entre os planos.</li><li>Não há diferença significativa no número de chamadas feitas pelos usuários de nenhum dos planos.</li>",
+                'gallery-title-6': "Distribuição de Chamadas",
+                'gallery-summary-6': "<li>A distribuição da duração das chamadas é semelhante para ambos os planos.</li><li>A maioria das chamadas é curta, com alguns outliers de maior duração.</li>",
+                'gallery-title-7': "Distribuição de Mensagens",
+                'gallery-summary-7': "<li>Os usuários do plano 'Ultimate' enviam mais mensagens.</li><li>Isso provavelmente se deve à maior franquia de mensagens no plano 'Ultimate'.</li>",
+                'gallery-title-8': "Distribuição da Receita Média Mensal",
+                'gallery-summary-8': "<li>O plano 'Ultimate' tem uma distribuição de receita maior e mais concentrada.</li><li>A receita do plano 'Surf' é mais dispersa devido a cobranças excedentes.</li>",
+                'gallery-title-9': "Distribuição Mensal de Uso de GB",
+                'gallery-summary-9': "<li>Os usuários do plano 'Surf' mostram uma distribuição mais ampla de uso de dados.</li><li>Muitos usuários do 'Surf' consomem dados perto ou além do limite do plano.</li>",
+                'gallery-title-10': "Distribuição da Receita Média por Usuário",
+                'gallery-summary-10': "<li>A receita média por usuário é maior para o plano 'Ultimate'.</li><li>Isso confirma que os usuários do 'Ultimate' são, em média, mais lucrativos.</li>",
                 'methodology-title': "🔬 Metodologia",
                 'method-1': "<strong>Tratamento e Pré-processamento de Dados:</strong> Limpeza e transformação dos dados brutos de uso utilizando Python, Pandas e NumPy.",
                 'method-2': "<strong>Engenharia de Features:</strong> Criação de novas variáveis, como a receita mensal por usuário, agregando dados de chamadas, mensagens e internet.",
@@ -253,13 +502,17 @@
             if (lang === 'en') {
                 for (const id in originalTexts) {
                     const element = document.getElementById(id);
-                    if (element) element.innerHTML = originalTexts[id];
+                    if (element) {
+                        element.innerHTML = originalTexts[id];
+                    }
                 }
             } else {
                 const translationSet = translations[lang];
                 for (const id in translationSet) {
                     const element = document.getElementById(id);
-                    if (element) element.innerHTML = translationSet[id];
+                    if (element) {
+                        element.innerHTML = translationSet[id];
+                    }
                 }
             }
         }
@@ -276,6 +529,26 @@
             });
             const savedTheme = localStorage.getItem('theme') || 'light';
             updateTheme(savedTheme);
+
+            // Modal functionality
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            var modalSummaryList = document.getElementById("modalSummaryList");
+            var images = document.querySelectorAll(".gallery-item img");
+            images.forEach(image => {
+                image.onclick = function(){
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    const summaryList = this.parentElement.querySelector('.summary');
+                    modalSummaryList.innerHTML = summaryList.innerHTML;
+                }
+            });
+
+            var span = document.getElementsByClassName("close")[0];
+
+            span.onclick = function() { 
+                modal.style.display = "none";
+            }
         });
     </script>
 
