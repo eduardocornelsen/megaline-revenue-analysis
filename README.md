@@ -50,6 +50,13 @@ Project Page<br><div style="font-size: 0.8em;">Página do Projeto</div>
 
 </div>
 
+# ADICIONAR
+- Teste de hipóteses
+- Gráficos
+- Acionáveis que dariam para ser utilizados com o que aprendi
+- Próximos passos
+- Gráfico, teste de hipóteses
+
 
 
 ## 📋 Project Summary
